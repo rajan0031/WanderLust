@@ -1,0 +1,114 @@
+<% layout("/layouts/boilerplate") %>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    img {
+      display: block;
+      margin: 10px auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+    }
+
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+  </style>
+
+  <div class="container">
+    <% if (listing) { %>
+      <h3>Listing Details</h3>
+      <ul>
+        <li><strong>Title:</strong>
+          <%= listing.title %>
+        </li>
+        <li><strong>Description:</strong>
+          <%= listing.description %>
+        </li>
+        <li><img src="<%= listing.image %>" alt="<%= listing.title %>" /></li>
+        <li><strong>Price:</strong> &#8377; <%= listing.price.toLocaleString("en-IN") %>
+        </li>
+        <li><strong>Location:</strong>
+          <%= listing.location %>
+        </li>
+        <li><strong>Country:</strong>
+          <%= listing.country %>
+        </li>
+      </ul>
+      <div class="actions">
+        <a href="/listings/<%= listing._id %>/edit" class="edit-btn">Edit this Listing</a>
+        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+          <button class="delete-btn">Delete this listing</button>
+        </form>
+      </div>
+      <% } else { %>
+        <p>Listing not found.</p>
+        <% } %>
+  </div>

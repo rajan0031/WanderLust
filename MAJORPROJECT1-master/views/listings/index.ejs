@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Listings</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      a {
+        display: block;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>All Listings</h3>
+    <ul>
+      <% for(let listing of allListings) { %>
+        <li>
+          <a href="/listings/<%= listing._id %>">
+            <%= listing.title %>
+          </a>
+        </li>
+        <% } %>
+    </ul>
+  </body>
+
+  </html>

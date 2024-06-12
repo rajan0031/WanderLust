@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderLust</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Create a New Listing</h3>
+  <form method="POST" action="/listings">
+    <input name="listing[title]" placeholder="Enter title" type="text" required />
+    <br /><br />
+    <textarea name="listing[description]" placeholder="Enter description" required></textarea>
+    <br /><br />
+    <input name="listing[image]" placeholder="Enter image URL/Link" type="text" required />
+    <br /><br />
+    <input name="listing[price]" placeholder="Enter price" type="number" required />
+    <br /><br />
+    <input name="listing[country]" placeholder="Enter country" type="text" required />
+    <br /><br />
+    <input name="listing[location]" placeholder="Enter location" type="text" required />
+    <br /><br />
+    <button>Add Listing</button>
+  </form>
+</body>
+
+</html>
